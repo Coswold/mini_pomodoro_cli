@@ -63,7 +63,7 @@ class Session(object):
         seconds = 0
         minutes = 0
 
-        while seconds < 25:
+        while minutes < 25:
             try:
                 sys.stdout.flush()
                 time.sleep(1)
