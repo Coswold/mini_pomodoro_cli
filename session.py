@@ -1,4 +1,6 @@
 #!python
+import time
+import sys
 
 class Session(object):
 
@@ -20,3 +22,19 @@ class Session(object):
     def update(self):
 
     def timer(self):
+        """Keep track of 25 minute intervals"""
+        time_start = time.time()
+        seconds = 0
+        minutes = 0
+
+        while minutes < 25:
+            try:
+                sys.stdout.flush()
+                time.sleep(1)
+                seconds = int(time.time() - time_start) - minutes * 60
+                if seconds >= 60:
+                    minutes += 1
+                    seconds = 0
+            except KeyboardInterrupt, e:
+                break
+        return self.update()
