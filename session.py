@@ -20,6 +20,11 @@ class Session(object):
          'Ask someone to to go on a walk.', 'Get a pastry and walk around.',
          'Play ping-pong.', 'Draw.', 'Close your eyes.']
 
+    def logger(self):
+        file = open('progress.txt', "w+")
+        file.write("You worked on {} for {} hours".format(self.subject, self.hours))
+        file.close()
+
     def print_update(self):
         """Print Current pomodoro's and subject."""
         i = 0
@@ -72,5 +77,6 @@ class Session(object):
                     minutes += 1
                     seconds = 0
             except KeyboardInterrupt:
+                self.logger()
                 raise KeyError('You have finished the session.')
         self.update()
