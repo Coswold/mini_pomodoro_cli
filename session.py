@@ -21,8 +21,8 @@ class Session(object):
          'Play ping-pong.', 'Draw.', 'Close your eyes.']
 
     def logger(self):
-        file = open('progress.txt', "w+")
-        file.write("You worked on {} for {} hours".format(self.subject, self.hours))
+        file = open('progress.txt', "a")
+        file.write("You worked on {} for {} hours\n".format(self.subject, self.hours))
         file.close()
 
     def print_update(self):
@@ -68,7 +68,7 @@ class Session(object):
         seconds = 0
         minutes = 0
 
-        while minutes < 25:
+        while seconds < 25:
             try:
                 sys.stdout.flush()
                 time.sleep(1)
