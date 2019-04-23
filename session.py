@@ -35,10 +35,10 @@ class Session(object):
         with open('progress.txt', "w") as json_file:
             #data = json.load(json_file)
             if date not in data:
-                data[date] = ["You worked on {} for {} hours\n".format(self.subject, self.hours)]
+                data[date] = ["You worked on {} for {} hours".format(self.subject, self.hours)]
             else:
-                data[date].append("You worked on {} for {} hours\n".format(self.subject, self.hours))
-            json.dump(data, json_file)
+                data[date].append("You worked on {} for {} hours".format(self.subject, self.hours))
+            json.dump(data, json_file, indent=4)
 
         #file = open('progress.txt', "a")
         #file.write("You worked on {} for {} hours\n".format(self.subject, self.hours))
