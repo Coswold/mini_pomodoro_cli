@@ -15,7 +15,7 @@ Must have Python and Tkinter installed.
 Clone the repository to your machine.
 
 ```
-git clone <repo name> 
+git clone <repo name>
 ```
 
 Cd into the new directory.
@@ -28,4 +28,14 @@ Run the program.
 
 ```
 python3 app.py
+```
+
+The program will write a text file formatted in JSON to the current directory.
+
+```
+{
+    "04/23/19": [
+        "You worked on activities for 0.0 hours"
+    ]
+}
 ```
