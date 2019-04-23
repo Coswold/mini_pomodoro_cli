@@ -3,6 +3,8 @@ import time
 import sys
 from tkinter import messagebox
 import random
+import json
+import datetime
 
 class Session(object):
 
@@ -21,9 +23,26 @@ class Session(object):
          'Play ping-pong.', 'Draw.', 'Close your eyes.']
 
     def logger(self):
-        file = open('progress.txt', "a")
-        file.write("You worked on {} for {} hours\n".format(self.subject, self.hours))
-        file.close()
+        date = datetime.datetime.now().strftime("%x")
+        try:
+            with open('progress.txt') as json_file:
+                data = json.load(json_file)
+                print(data)
+                json_file.close()
+        except:
+            data = {}
+
+        with open('progress.txt', "w") as json_file:
+            #data = json.load(json_file)
+            if date not in data:
+                data[date] = ["You worked on {} for {} hours\n".format(self.subject, self.hours)]
+            else:
+                data[date].append("You worked on {} for {} hours\n".format(self.subject, self.hours))
+            json.dump(data, json_file)
+
+        #file = open('progress.txt', "a")
+        #file.write("You worked on {} for {} hours\n".format(self.subject, self.hours))
+        #file.close()
 
     def print_update(self):
         """Print Current pomodoro's and subject."""
@@ -68,7 +87,7 @@ class Session(object):
         seconds = 0
         minutes = 0
 
-        while seconds < 25:
+        while minutes < 25:
             try:
                 sys.stdout.flush()
                 time.sleep(1)
