@@ -7,7 +7,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-.txt
+*.txt
 
 # Icon must end with two \r
 Icon

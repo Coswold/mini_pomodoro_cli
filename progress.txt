@@ -1,6 +1,0 @@
-{
-    "04/23/19": [
-        "You worked on asdf for 0.0 hours\n",
-        "You worked on stuff for 0.0 hours"
-    ]
-}
