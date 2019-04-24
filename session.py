@@ -67,8 +67,12 @@ class Session(object):
     def rest(self, tim):
         self.print_dialogue(tim)
         enter = True
-        while enter == True:
-            enter = input("Press [Enter] when you\'re ready to focus again.")
+        try:
+            while enter == True:
+                enter = input("Press [Enter] when you\'re ready to focus again.")
+        except KeyboardInterrupt:
+            self.logger()
+            raise KeyError('You have finished the session.')
 
     def update(self):
         self.pomodoro += 1
